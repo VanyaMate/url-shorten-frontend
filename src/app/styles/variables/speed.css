@@ -1,0 +1,5 @@
+:root {
+    --speed-target : .1s;
+    --fast         : var(--speed-target);
+    --slow         : calc(var(--speed-target) * 5);
+}

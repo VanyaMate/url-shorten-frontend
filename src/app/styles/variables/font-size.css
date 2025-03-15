@@ -1,0 +1,9 @@
+:root {
+    --font-size-target : 12px;
+    --font-size-s      : var(--font-size-target);
+    --font-size-m      : calc(var(--font-size-target) * 1.6);
+    --font-size-l      : calc(var(--font-size-target) * 2.2);
+    --font-size-xl     : calc(var(--font-size-target) * 2.6);
+    --font-size-xxl    : calc(var(--font-size-target) * 3.2);
+    --font-size-xxxl   : calc(var(--font-size-target) * 3.8);
+}

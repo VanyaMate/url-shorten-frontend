@@ -1,0 +1,9 @@
+:root {
+    --all-input-height-target : 44px;
+    --all-input-height-small  : calc(var(--all-input-height-target) * .6);
+    --all-input-height-medium : var(--all-input-height-target);
+    --all-input-height-large  : calc(var(--all-input-height-target) * 1.4);
+
+    --page-width              : 1200px;
+    --page-width-full         : 100%;
+}

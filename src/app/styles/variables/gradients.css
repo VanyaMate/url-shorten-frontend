@@ -1,0 +1,3 @@
+:root {
+    --rainbow : linear-gradient(to right, var(--danger-color) 0%, var(--primary-color) 50%);
+}

@@ -1,0 +1,15 @@
+:root {
+    /* Colors */
+    --primary-color     : rgba(var(--blue), 1);
+    --primary-color-inv : rgba(var(--white), 1);
+    --primary-color-op  : rgba(var(--blue), .8);
+    --danger-color      : rgba(var(--red), 1);
+    --danger-color-inv  : rgba(var(--white), 1);
+    --danger-color-op   : rgba(var(--red), .8);
+    --warning-color     : rgba(var(--orange), 1);
+    --warning-color-inv : rgba(var(--black), 1);
+    --warning-color-op  : rgba(var(--orange), .8);
+    --default-color     : rgba(var(--gray-dark), 1);
+    --default-color-inv : rgba(var(--white), 1);
+    --default-color-op  : rgba(var(--gray-dark), .8);
+}

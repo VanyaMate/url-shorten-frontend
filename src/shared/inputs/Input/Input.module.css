@@ -1,0 +1,33 @@
+.container {
+    padding       : var(--offset-large);
+    border-radius : var(--offset-large);
+    border        : 1px solid var(--border-color);
+    background    : var(--bg-main);
+    outline       : 1px solid transparent;
+    text-align    : center;
+    font-size     : var(--font-size-l);
+    transition    : var(--fast);
+
+    &:focus {
+        border  : 1px solid var(--primary-color);
+        outline : 1px solid var(--primary-color);
+    }
+
+    &.small {
+        padding       : var(--offset-small);
+        border-radius : var(--offset-small);
+        font-size     : var(--font-size-s);
+    }
+
+    &.medium {
+        padding       : var(--offset-medium);
+        border-radius : var(--offset-medium);
+        font-size     : var(--font-size-m);
+    }
+
+    &.large {
+        padding       : var(--offset-large);
+        border-radius : var(--offset-large);
+        font-size     : var(--font-size-l);
+    }
+}

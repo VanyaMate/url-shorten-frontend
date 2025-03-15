@@ -1,0 +1,29 @@
+:root body[data-theme="auto"] {
+    @media (prefers-color-scheme : dark) {
+        /* Background */
+        --bg-main         : rgba(var(--black), 1);
+        --bg-second       : rgba(var(--black-light), 1);
+
+        /* Text Color */
+        --color-main      : rgba(var(--white), 1);
+        --color-second    : rgba(var(--white-dark), 1);
+        --color-invisible : rgba(var(--gray), 1);
+
+        /* Border Color */
+        --border-color    : rgba(var(--gray-dark), 1);
+    }
+}
+
+:root body[data-theme="dark"] {
+    /* Background */
+    --bg-main         : rgba(var(--black), 1);
+    --bg-second       : rgba(var(--black-light), 1);
+
+    /* Text Color */
+    --color-main      : rgba(var(--white), 1);
+    --color-second    : rgba(var(--white-dark), 1);
+    --color-invisible : rgba(var(--gray), 1);
+
+    /* Border Color */
+    --border-color    : rgba(var(--gray-dark), 1);
+}
