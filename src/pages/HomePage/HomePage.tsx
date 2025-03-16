@@ -3,6 +3,8 @@ import {
     CreateUrlForm,
 } from '../../widget/url-shorten/CreateUrlForm/CreateUrlForm.tsx';
 import { UrlList } from '../../widget/url-shorten/UrlList/UrlList.tsx';
+import css from './HomePage.module.css';
+import classNames from 'classnames';
 
 
 export type HomePageProps =
@@ -10,10 +12,11 @@ export type HomePageProps =
     & ComponentPropsWithoutRef<'div'>;
 
 export const HomePage: FC<HomePageProps> = memo(function HomePage (props) {
-    const { ...other } = props;
+    const { className, ...other } = props;
 
     return (
-        <div { ...other }>
+        <div
+            className={ classNames(css.container, {}, [ className ]) } { ...other }>
             <h1>Сократить ссылку</h1>
             <CreateUrlForm/>
             <UrlList/>

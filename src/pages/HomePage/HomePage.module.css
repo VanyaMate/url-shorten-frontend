@@ -1,0 +1,17 @@
+.container {
+    width           : 100dvw;
+    min-height      : 100dvh;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : safe center;
+    align-items     : safe center;
+    gap             : var(--offset-large);
+    padding         : var(--offset-large);
+
+    & > h1 {
+        background      : var(--rainbow);
+        background-size : 100%;
+        background-clip : text;
+        color           : transparent;
+    }
+}

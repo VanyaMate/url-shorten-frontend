@@ -1,41 +1,68 @@
-import {
-    ComponentPropsWithoutRef,
-    FC,
-    memo,
-    useLayoutEffect,
-    useSyncExternalStore,
-} from 'react';
+import { ComponentPropsWithoutRef, FC, memo, useLayoutEffect } from 'react';
 import classNames from 'classnames';
 import css from './UrlList.module.css';
 import {
-    getUrlsEffect, urlsGetListPending,
+    getUrlsEffect,
+    urlGettingError,
+    urlsGetListPending,
     urlsList,
 } from '../../../app/models/url-shorten.model.ts';
+import { useStore } from '../../../app/hook/useStore.ts';
+import { Alert } from '../../../shared/notification/Alert/Alert.tsx';
+import { AlertStyle } from '../../../shared/notification/Alert/AlertStyle.ts';
+import {
+    UrlShortenPreview,
+} from '../../../entity/url-shared/UrlShortenPreview/UrlShortenPreview.tsx';
+import {
+    RemoveUrlButton,
+} from '../../../feature/url-shorten/RemoveUrlButton/RemoveUrlButton.tsx';
+import { Link } from 'react-router-dom';
+import { Row } from '../../../shared/box/Row/Row.tsx';
 
 
 export type UrlListProps =
     {}
-    & ComponentPropsWithoutRef<'div'>;
+    & ComponentPropsWithoutRef<'section'>;
 
 export const UrlList: FC<UrlListProps> = memo(function UrlList (props) {
     const { className, ...other } = props;
-    const urls                    = useSyncExternalStore(urlsList.subscribe, urlsList.get);
-    const pending                 = useSyncExternalStore(urlsGetListPending.subscribe, urlsGetListPending.get);
+    const urls                    = useStore(urlsList);
+    const pending                 = useStore(urlsGetListPending);
+    const error                   = useStore(urlGettingError);
 
     useLayoutEffect(() => {
         getUrlsEffect();
     }, []);
 
     return (
-        <div { ...other }
-             className={ classNames(css.container, {}, [ className ]) }>
-            <h2>Список</h2>
+        <section { ...other }
+                 className={ classNames(css.container, {}, [ className ]) }>
+            <h3 className={ css.title }>Список всех ссылок</h3>
             {
-                pending ? <p>Loading...</p> : <ol>
-                    { urls.map((url) => <li
-                        key={ url.id }>{ url.originalUrl }</li>) }
-                </ol>
+                error ? <Alert header={ 'Ошибка' }
+                               styleType={ AlertStyle.ERROR }
+                               key={ 'error' }>{ error }</Alert>
+                      : null
             }
-        </div>
+            {
+                pending ? <div>Загрузка..</div>
+                        : urls.length
+                          ? urls.map((url) => (
+                                <UrlShortenPreview
+                                    urlShorten={ url } key={ url.id }
+                                >
+                                    <Row>
+                                        <RemoveUrlButton alias={ url.id }/>
+                                        <Link
+                                            to={ `/analytics/${ url.id }` }
+                                        >
+                                            Аналитика
+                                        </Link>
+                                    </Row>
+                                </UrlShortenPreview>
+                            ))
+                          : <div className={ css.empty }>Ссылок нет</div>
+            }
+        </section>
     );
 });

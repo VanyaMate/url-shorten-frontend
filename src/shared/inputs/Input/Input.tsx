@@ -7,11 +7,17 @@ import { InputSize } from './InputSize.ts';
 export type InputProps =
     {
         size?: InputSize;
+        header?: string;
+        error?: string;
     }
     & ComponentPropsWithoutRef<'input'>;
 
 export const Input: FC<InputProps> = memo(function Input (props) {
-    const { className, size = InputSize.MEDIUM, ...other } = props;
+    const {
+              className,
+              size = InputSize.MEDIUM,
+              ...other
+          } = props;
 
     return (
         <input

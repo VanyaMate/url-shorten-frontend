@@ -1,0 +1,13 @@
+.container {
+    display         : flex;
+    flex-direction  : column;
+    gap             : var(--offset-small);
+    font-size       : var(--font-size-s);
+    color           : var(--color-second);
+
+    list-style-type : none;
+
+    span {
+        color : var(--color-invisible);
+    }
+}

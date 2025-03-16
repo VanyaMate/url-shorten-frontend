@@ -1,0 +1,29 @@
+.container {
+    padding       : var(--offset-medium);
+    border-radius : var(--offset-medium);
+
+    header {
+        font-size : var(--font-size-m);
+    }
+
+    p {
+        font-size : var(--font-size-s);
+    }
+
+    &.default {
+        background : var(--bg-second);
+        border     : 1px solid var(--border-color);
+    }
+
+    &.success {
+        border     : 1px solid var(--primary-color);
+        background : color-mix(in srgb, var(--primary-color) 10%, var(--bg-main) 100%);
+        color      : var(--color-main);
+    }
+
+    &.error {
+        border     : 1px solid var(--danger-color);
+        background : color-mix(in srgb, var(--danger-color) 10%, var(--bg-main) 100%);
+        color      : var(--color-main);
+    }
+}

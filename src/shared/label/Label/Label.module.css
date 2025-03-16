@@ -1,0 +1,10 @@
+.container {
+    display        : flex;
+    flex-direction : column;
+    gap            : var(--offset-small);
+
+    & > span {
+        font-size : var(--font-size-s);
+        color     : var(--color-invisible);
+    }
+}

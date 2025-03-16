@@ -1,0 +1,21 @@
+.container {
+    display        : flex;
+    flex-direction : column;
+    gap            : var(--offset-medium);
+
+    & > ul {
+        list-style-type : none;
+
+        & > li {
+            & > span {
+                color : var(--color-invisible);
+            }
+        }
+    }
+
+    .list {
+        display        : flex;
+        flex-direction : column;
+        gap            : var(--offset-small);
+    }
+}

@@ -13,7 +13,7 @@
         "@vanyamate/sec": "^0.1.5",
         "@vanyamate/sec-react": "^0.0.6",
         "@vanyamate/types-kit": "^0.0.17",
-        "@vanyamate/url-shorten": "^0.0.3",
+        "@vanyamate/url-shorten": "^0.0.4",
         "classnames": "^2.5.1",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",

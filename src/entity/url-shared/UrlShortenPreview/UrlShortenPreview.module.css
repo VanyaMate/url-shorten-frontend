@@ -1,0 +1,27 @@
+.container {
+    padding        : var(--offset-medium);
+    border-radius  : var(--offset-medium);
+    border         : 1px solid var(--border-color);
+    background     : var(--bg-second);
+    display        : flex;
+    flex-direction : column;
+    gap            : var(--offset-medium);
+
+    h4 {
+        font-size : var(--font-size-l);
+    }
+
+    ul {
+        list-style-type : none;
+        display         : flex;
+        flex-direction  : column;
+        gap             : var(--offset-small);
+        font-size       : var(--font-size-s);
+
+        li {
+            span {
+                color : var(--color-invisible);
+            }
+        }
+    }
+}

@@ -3,6 +3,18 @@
     outline    : 1px solid transparent;
     transition : var(--fast);
     border     : 1px solid var(--border-color);
+    background : var(--bg-second);
+    color      : var(--color-main);
+
+    &[disabled] {
+        opacity : .4;
+    }
+
+    &:focus:not([disabled]), &:hover:not([disabled]) {
+        border     : 1px solid var(--primary-color);
+        outline    : 1px solid var(--primary-color);
+        background : color-mix(in srgb, var(--bg-main) 100%, var(--bg-main) 10%);
+    }
 
     &.small {
         padding       : var(--offset-small);
@@ -22,7 +34,7 @@
         font-size     : var(--font-size-l);
     }
 
-    &.primary {
+    &.primary:not([disabled]) {
         border     : 1px solid var(--primary-color);
         background : var(--primary-color);
         color      : var(--primary-color-inv);
@@ -33,7 +45,7 @@
         }
     }
 
-    &.danger {
+    &.danger:not([disabled]) {
         border     : 1px solid var(--danger-color);
         background : var(--danger-color);
         color      : var(--danger-color-inv);
@@ -41,18 +53,6 @@
         &:focus, &:hover {
             outline    : 1px solid var(--danger-color);
             background : color-mix(in srgb, var(--danger-color) 100%, var(--bg-main) 10%);
-        }
-    }
-
-    &.default {
-        border     : 1px solid var(--border-color);
-        background : var(--bg-second);
-        color      : var(--color-main);
-
-        &:focus, &:hover {
-            border     : 1px solid var(--primary-color);
-            outline    : 1px solid var(--primary-color);
-            background : color-mix(in srgb, var(--bg-main) 100%, var(--bg-main) 10%);
         }
     }
 }
