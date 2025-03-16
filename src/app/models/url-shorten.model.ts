@@ -29,9 +29,10 @@ export const urlGettingError = store<string>('')
         getUrlsEffect,
         'onError',
         (_, { error }) => isString(error)
-                          ? error : error instanceof Error
-                                    ? error.message
-                                    : JSON.stringify(error),
+                          ? error
+                          : error instanceof Error
+                            ? error.message
+                            : JSON.stringify(error),
     );
 
 export const urlCreatingError = store<string>('')
@@ -40,7 +41,8 @@ export const urlCreatingError = store<string>('')
         createUrlEffect,
         'onError',
         (_, { error }) => isString(error)
-                          ? error : error instanceof Error
-                                    ? error.message
-                                    : JSON.stringify(error),
+                          ? error
+                          : error instanceof Error
+                            ? error.message
+                            : JSON.stringify(error),
     );

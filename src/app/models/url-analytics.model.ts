@@ -8,9 +8,6 @@ import { isString } from '@vanyamate/types-kit';
 
 export const getUrlAnalyticsEffect = effect(getUrlAnalyticsAction);
 
-export const currentUrlAnalyticsForId = store<string>('')
-    .on(getUrlAnalyticsEffect, 'onBefore', (_, { args }) => args[0]);
-
 export const urlAnalyticsPending = store<boolean>(false)
     .on(getUrlAnalyticsEffect, 'onBefore', () => true)
     .on(getUrlAnalyticsEffect, 'onFinally', () => false);
@@ -18,9 +15,14 @@ export const urlAnalyticsPending = store<boolean>(false)
 export const urlAnalytics = store<DomainUrlAnalytics | null>(null)
     .on(getUrlAnalyticsEffect, 'onSuccess', (_, { result }) => result!);
 
-export const urlAnalyticsError = store<Array<string>>([])
+export const urlAnalyticsError = store<string>('')
+    .on(getUrlAnalyticsEffect, 'onBefore', () => '')
     .on(
         getUrlAnalyticsEffect,
         'onError',
-        (state, { error }) => isString(error) ? state.concat(error) : state,
+        (_, { error }) => isString(error)
+                          ? error
+                          : error instanceof Error
+                            ? error.message
+                            : JSON.stringify(error),
     );

@@ -4,6 +4,10 @@
     gap             : var(--offset-small);
     font-size       : var(--font-size-s);
     color           : var(--color-second);
+    padding         : var(--offset-medium);
+    border-radius   : var(--offset-medium);
+    background      : var(--bg-second);
+    border          : 1px solid var(--border-color);
 
     list-style-type : none;
 

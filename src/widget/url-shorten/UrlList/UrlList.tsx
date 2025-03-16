@@ -16,8 +16,13 @@ import {
 import {
     RemoveUrlButton,
 } from '../../../feature/url-shorten/RemoveUrlButton/RemoveUrlButton.tsx';
-import { Link } from 'react-router-dom';
 import { Row } from '../../../shared/box/Row/Row.tsx';
+import {
+    GoToShortenLink,
+} from '../../../feature/url-shorten/GoToShortenLink/GoToShortenLink.tsx';
+import {
+    GoToAnalyticsLink,
+} from '../../../feature/url-shorten/GoToShortenLink/GoToAnalyticsLink.tsx';
 
 
 export type UrlListProps =
@@ -52,12 +57,9 @@ export const UrlList: FC<UrlListProps> = memo(function UrlList (props) {
                                     urlShorten={ url } key={ url.id }
                                 >
                                     <Row>
+                                        <GoToAnalyticsLink alias={ url.id }/>
+                                        <GoToShortenLink alias={ url.id }/>
                                         <RemoveUrlButton alias={ url.id }/>
-                                        <Link
-                                            to={ `/analytics/${ url.id }` }
-                                        >
-                                            Аналитика
-                                        </Link>
                                     </Row>
                                 </UrlShortenPreview>
                             ))

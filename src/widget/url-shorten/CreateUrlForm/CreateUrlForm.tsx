@@ -69,7 +69,13 @@ export const CreateUrlForm: FC<CreateUrlFormProps> = memo(function CreateUrlForm
                     key="alias"
                     type={ 'text' }
                     placeholder={ 'Введите алиас' }
-                    { ...register('alias', { required: false }) }
+                    {
+                        ...register('alias', {
+                            required : false,
+                            maxLength: 20,
+                            minLength: 3,
+                        })
+                    }
                 />
             </Label>
             <Label
@@ -81,7 +87,7 @@ export const CreateUrlForm: FC<CreateUrlFormProps> = memo(function CreateUrlForm
                     placeholder={ 'Срок действия до' }
                     { ...register('expiresAt', {
                         required  : false,
-                        setValueAs: (value: Date) => {
+                        setValueAs: (value: string) => {
                             return +new Date(value);
                         },
                     }) }

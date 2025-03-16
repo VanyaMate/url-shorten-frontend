@@ -1,3 +1,6 @@
-export const removeUrlAction = async function (url: string): Promise<void> {
-    await fetch(`${ __API__ }/api/v1/url-shorten/${ url }`, { method: 'DELETE' });
+import { request } from '../../fetch/request.ts';
+
+
+export const removeUrlAction = async function (alias: string): Promise<void> {
+    return request(`${ __API__ }/api/v1/url-shorten/${ __API__ }/${ alias }`, { method: 'DELETE' }, undefined, 'Ошибка удаления короткой ссылки');
 };

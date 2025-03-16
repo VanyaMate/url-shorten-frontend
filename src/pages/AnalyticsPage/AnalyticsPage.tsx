@@ -13,6 +13,9 @@ import {
     UrlAnalyticsPreview,
 } from '../../entity/url-analytics/UrlAnalyticsPreview/UrlAnalyticsPreview.tsx';
 import css from './AnalyticsPage.module.css';
+import {
+    GoToShortenLink,
+} from '../../feature/url-shorten/GoToShortenLink/GoToShortenLink.tsx';
 
 
 export type AnalyticsPageProps =
@@ -50,6 +53,7 @@ export const AnalyticsPage: FC<AnalyticsPageProps> = memo(function AnalyticsPage
         <section { ...other }
                  className={ classNames(css.container, {}, [ className ]) }>
             <h2>{ params.aliasId }</h2>
+            <GoToShortenLink alias={ params.aliasId }/>
             <UrlAnalyticsPreview analyticsData={ analytics }/>
         </section>
     );

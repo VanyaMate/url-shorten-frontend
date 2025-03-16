@@ -27,10 +27,10 @@ export const UrlAnalyticsPreview: FC<UrlAnalyticsPreviewProps> = memo(function U
             <section className={ css.list }>
                 <h4>Последние 5:</h4>
                 {
-                    analyticsData.lastRedirects.map((redirect) => (
+                    analyticsData.lastRedirects.map((redirect, index) => (
                         <UrlRedirectPreview
                             redirectInfo={ redirect }
-                            key={ redirect.id }
+                            key={ index }
                         />
                     ))
                 }

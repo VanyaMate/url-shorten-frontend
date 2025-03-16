@@ -18,7 +18,10 @@ export const UrlRedirectPreview: FC<UrlRedirectPreviewProps> = memo(function Url
              className={ classNames(css.container, {}, [ className ]) }>
             <li><span>IP:</span>{ redirectInfo.ip }</li>
             <li>
-                <span>Время перехода:</span>{ new Date(redirectInfo.redirectTime).toLocaleString() }
+                <span>Время перехода:</span>
+                {
+                    new Date(redirectInfo.redirectTime).toLocaleString()
+                }
             </li>
         </ul>
     );

@@ -16,11 +16,16 @@ export const UrlShortenPreview: FC<UrlShortenPreviewProps> = memo(function UrlSh
     return (
         <article { ...other }
                  className={ classNames(css.container, {}, [ className ]) }>
-            <h4>/{ urlShorten.id }</h4>
+            <h4>{ urlShorten.id }</h4>
             <ul>
                 <li><span>ссылка на:</span>{ urlShorten.originalUrl }</li>
                 <li>
-                    <span>действует до:</span>{ new Date(urlShorten.expiresAt).toLocaleString() }
+                    <span>действует до:</span>
+                    {
+                        urlShorten.expiresAt
+                        ? new Date(urlShorten.expiresAt).toLocaleString()
+                        : 'Неограниченно'
+                    }
                 </li>
             </ul>
             { children }
