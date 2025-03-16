@@ -4,6 +4,7 @@ import { HomePageAsync } from '../../pages/HomePage/HomePageAsync.tsx';
 import {
     AnalyticsPageAsync,
 } from '../../pages/AnalyticsPage/AnalyticsPageAsync.tsx';
+import { InfoPageAsync } from '../../pages/InfoPage/InfoPageAsync.tsx';
 
 
 export type AppRouterProps =
@@ -20,6 +21,10 @@ export const AppRouter: FC<AppRouterProps> = memo(function AppRouter () {
             <Route
                 element={ <AnalyticsPageAsync/> }
                 path={ '/analytics/:aliasId' }
+            />
+            <Route
+                element={ <InfoPageAsync/> }
+                path={ '/info/:aliasId' }
             />
         </Routes>
     );

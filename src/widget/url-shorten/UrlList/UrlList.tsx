@@ -22,7 +22,10 @@ import {
 } from '../../../feature/url-shorten/GoToShortenLink/GoToShortenLink.tsx';
 import {
     GoToAnalyticsLink,
-} from '../../../feature/url-shorten/GoToShortenLink/GoToAnalyticsLink.tsx';
+} from '../../../feature/url-shorten/GoToAnalyticsLink/GoToAnalyticsLink.tsx';
+import {
+    GoToInfoLink,
+} from '../../../feature/url-shorten/GoToInfoLink/GoToInfoLink.tsx';
 
 
 export type UrlListProps =
@@ -59,6 +62,7 @@ export const UrlList: FC<UrlListProps> = memo(function UrlList (props) {
                                     <Row>
                                         <GoToAnalyticsLink alias={ url.id }/>
                                         <GoToShortenLink alias={ url.id }/>
+                                        <GoToInfoLink alias={ url.id }/>
                                         <RemoveUrlButton alias={ url.id }/>
                                     </Row>
                                 </UrlShortenPreview>

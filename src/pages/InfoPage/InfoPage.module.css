@@ -1,0 +1,28 @@
+.container {
+    display         : flex;
+    flex-direction  : column;
+    gap             : var(--offset-large);
+    padding         : var(--offset-large);
+    align-items     : safe center;
+    justify-content : safe center;
+
+    & > h2 {
+        background      : var(--rainbow);
+        background-size : 100%;
+        background-clip : text;
+        color           : transparent;
+    }
+
+    & > ul {
+        list-style-type : none;
+        display         : flex;
+        flex-direction  : column;
+        gap             : var(--offset-small);
+
+        & > li {
+            & > span {
+                color : var(--color-invisible);
+            }
+        }
+    }
+}
